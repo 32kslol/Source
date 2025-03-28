@@ -1,10 +1,14 @@
 -- // coded a long time ago for "average day in america" or something like that
 
 
-
 if not game:IsLoaded() then
-    task.wait(15)
-    printing("Waiting for game to load...")
+    repeat task.wait() until game:IsLoaded()
+end
+
+if hookfunction and hookmetamethod and gethiddenproperty and setreadonly and require then
+print("Executor supported")
+else
+return print("Sorry executor not supported...") -- // check to be sureee
 end
 
 _G.Kill = false
