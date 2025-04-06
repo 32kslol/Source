@@ -344,8 +344,8 @@ local MyButton = LeftGroupBox:AddButton({
             end
             for i,v in pairs(game.Workspace["Box Job"]:GetDescendants()) do
                 if v:IsA("TouchTransmitter") then
-                    firetouchinterest(v,User.Character.Head,0)
-                    firetouchinterest(v,User.Character.Head,1)
+                    firetouchinterest(v.Parent,User.Character.Head,0)
+                    firetouchinterest(v.Parent,User.Character.Head,1)
                 end
             end
             end
