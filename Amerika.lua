@@ -8,16 +8,15 @@ end
 if hookfunction and hookmetamethod and gethiddenproperty and setreadonly and require then
 print("Executor supported")
 else
-return print("Sorry executor not supported...") -- // check to be sureee
+return error("Executor not supported")
 end
 
 _G.Kill = false
 _G.KillAll = false
 local User = game.Players.LocalPlayer
 
+
 local getinfo = getinfo or debug.getinfo
-local DEBUG = false
-local Hooked = {}
 local Detected, Kill
 
 local function manipulate(Name, Value, Weapon)
@@ -47,48 +46,26 @@ for i, v in getgc(true) do
     
         if typeof(DetectFunc) == "function" and not Detected then
             Detected = DetectFunc
-            
-            local Old; Old = hookfunction(Detected, function(Action, Info, NoCrash)
-                if Action ~= "_" then
-                    if DEBUG then
-                        warn(`Adonis AntiCheat flagged\nMethod: {Action}\nInfo: {Info}`)
-                    end
-                end
-                
-                return true
-            end)
-
-            table.insert(Hooked, Detected)
         end
 
         if rawget(v, "Variables") and rawget(v, "Process") and typeof(KillFunc) == "function" and not Kill then
             Kill = KillFunc
-            local Old; Old = hookfunction(Kill, function(Info)
-                if DEBUG then
-                    warn(`Adonis AntiCheat tried to kill (fallback): {Info}`)
-                end
-            end)
-
-            table.insert(Hooked, Kill)
         end
     end
 end
 
-local Old; Old = hookfunction(getrenv().debug.info, newcclosure(function(...)
+local Old = hookfunction(getrenv().debug.info, newcclosure(function(...)
     local LevelOrFunc, Info = ...
 
     if Detected and LevelOrFunc == Detected then
-        if DEBUG then
-            warn(`zins | adonis bypassed`)
-        end
-
         return coroutine.yield(coroutine.running())
     end
     
     return Old(...)
 end))
--- setthreadidentity(9)
+
 setthreadidentity(7)
+
 
 
 
@@ -159,33 +136,7 @@ Library:Notify("Welcome to Velocity.lua! User", nil, 4590657391)
 
 
 
-
-
-
-
-MiscLeftGroupBox:AddSlider('MySlider', {
-	Text = 'FastFlag Desync',
-	Default = 15,
-	Min = 0,
-	Max = 15,
-	Rounding = 1,
-	Compact = false,
-
-	Callback = function(Value)
-        setfflag("S2PhysicsSenderRate", tostring(Value))
-	end,
-
-	Tooltip = 'Desync Slider', -- Information shown when you hover over the slider
-	DisabledTooltip = 'I am disabled!', -- Information shown when you hover over the slider while it's disabled
-
-	Disabled = false, -- Will disable the slider (true / false)
-	Visible = true, -- Will make the slider invisible (true / false)
-})
-
-
-
-
-
+-- [[ THIS IS A OLD CODE WHEN I CODED THIS I DIDNT KNOW ABOUT CASES AND A LOT OF STUFF INDENTS ETC SO ITS NOT REALLY READABLE SOME OF THESE THINGS WERE PATCHED BUT SOME REMAINED WORKING EXAMPLE NAN$ BREAK GAME?]]
 local DropdownGroupBox = Tabs.Main:AddRightGroupbox('Dropdowns')
 
 
@@ -243,12 +194,7 @@ local MyButton = LeftGroupBox:AddButton({
 local MyButton = LeftGroupBox:AddButton({
 	Text = 'Nan money',
 	Func = function()
-        local args = {
-            [1] = "NaN"
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("DropCash"):FireServer(unpack(args))
-        
+        game:GetService("ReplicatedStorage"):WaitForChild("DropCash"):FireServer(0/0)
 	end,
 	DoubleClick = false,
 
@@ -710,74 +656,17 @@ for i,v in pairs(workspace.NPCs:GetChildren()) do
         v.HumanoidRootPart.Anchored = true
     end
 end
-        
+        	
         end,
     
 	DoubleClick = false,
 
-	Tooltip = 'Manipulate NPCS',
+	Tooltip = 'Didnt finish this and idc',
 	DisabledTooltip = 'I am disabled!', -- Information shown when you hover over the button while it's disabled
 
 	Disabled = false, -- Will disable the button (true / false)
 	Visible = true -- Will make the button invisible (true / false)
 })
-
-
-
-
-
-
-
-local MyButton = ExploitLeftGroupBox:AddButton({
-	Text = 'NPC DIE',
-	Func = function()
-        
-for i,v in pairs(workspace.NPCs:GetChildren()) do
-    if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and IsNetworkOwner2(v:FindFirstChild("HumanoidRootPart")) == true and v:FindFirstChild("Baton") then
-        v.HumanoidRootPart.Anchored = false
-        v.Humanoid.Health = 0
-    end
-end
-        
-        end,
-    
-	DoubleClick = false,
-
-	Tooltip = 'Manipulate NPCS',
-	DisabledTooltip = 'I am disabled!', -- Information shown when you hover over the button while it's disabled
-
-	Disabled = false, -- Will disable the button (true / false)
-	Visible = true -- Will make the button invisible (true / false)
-})
-
-
-local MyButton = ExploitLeftGroupBox:AddButton({
-	Text = 'NPC BRING',
-	Func = function()
-        
-for i,v in pairs(workspace.NPCs:GetChildren()) do
-    if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and IsNetworkOwner2(v:FindFirstChild("HumanoidRootPart")) == true and v:FindFirstChild("Baton") then
-        v.HumanoidRootPart.Anchored = false
-        v.HumanoidRootPart.CFrame = User.Character.HumanoidRootPart.CFrame
-    end
-end
-        
-        end,
-    
-	DoubleClick = false,
-
-	Tooltip = 'Manipulate NPCS',
-	DisabledTooltip = 'I am disabled!', -- Information shown when you hover over the button while it's disabled
-
-	Disabled = false, -- Will disable the button (true / false)
-	Visible = true -- Will make the button invisible (true / false)
-})
-
-
-
-
-
-
 
 local MyButton = MiscLeftGroupBox:AddButton({
 	Text = 'Anti Carhit',
