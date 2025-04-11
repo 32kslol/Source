@@ -1,5 +1,5 @@
 -- // coded a long time ago for "average day in america" or something like that
-
+pcall(function()
 
 if not game:IsLoaded() then
     repeat task.wait() until game:IsLoaded()
@@ -793,3 +793,4 @@ ThemeManager:ApplyToTab(Tabs['UI Settings'])
 
 
 
+end)
