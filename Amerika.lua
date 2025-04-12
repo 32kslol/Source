@@ -37,34 +37,20 @@ function IsNetworkOwner2(Part)
 end
 
 
-setthreadidentity(2)
+for Index, Value in ipairs(getgc(true)) do
+    if typeof(Value) == "table" then
+        local Detected = rawget(Value, "Detected")
+        local Kill = rawget(Value, "Kill")
 
-for i, v in getgc(true) do
-    if typeof(v) == "table" then
-        local DetectFunc = rawget(v, "Detected")
-        local KillFunc = rawget(v, "Kill")
-    
-        if typeof(DetectFunc) == "function" and not Detected then
-            Detected = DetectFunc
+        if typeof(Detected) == "function" then
+            hookfunction(Detected, function(Caller, Info, Name) if Caller ~= "_" then end return true end)
         end
 
-        if rawget(v, "Variables") and rawget(v, "Process") and typeof(KillFunc) == "function" and not Kill then
-            Kill = KillFunc
+        if rawget(Value, "Variables") and rawget(Value, "Process") and typeof(Kill) == "function" then
+            hookfunction(Kill, function() end)
         end
     end
 end
-
-local Old = hookfunction(getrenv().debug.info, newcclosure(function(...)
-    local LevelOrFunc, Info = ...
-
-    if Detected and LevelOrFunc == Detected then
-        return coroutine.yield(coroutine.running())
-    end
-    
-    return Old(...)
-end))
-
-setthreadidentity(7)
 
 
 
