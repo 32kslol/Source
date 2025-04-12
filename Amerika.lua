@@ -161,8 +161,10 @@ DropdownGroupBox:AddDropdown('FeGiver', {
 local MyButton = LeftGroupBox:AddButton({
 	Text = 'Grub money',
 	Func = function()
-        for i,v in pairs(game.Workspace:GetChildren()) do
+for i,v in pairs(game.Workspace:GetChildren()) do
             if v.Name == "Cash" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+            task.wait(0.2)
             fireclickdetector(v.CD)
             end
             end
@@ -775,6 +777,8 @@ SaveManager:SetSubFolder('Amerika')
 SaveManager:BuildConfigSection(Tabs['UI Settings'])
 ThemeManager:ApplyToTab(Tabs['UI Settings'])
 
+
+warn("Half of these features were patched, i am not responsible for any bans i cannot guarantee this is undetected")
 
 
 
