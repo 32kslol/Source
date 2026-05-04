@@ -13,15 +13,7 @@
      --secondary4-colour: rgba(0,0,0,0.3);
  }
    
- /*
- Theme Owned and Made by 32ks
-   
- Background Img: https://wpblink.com/sites/default/files/wallpaper/anime/66761/sword-art-online-ii-wallpapers-hd-66761-327252.png 
- Transparency2 Module: https://raw.githack.com/Ruben7173/Ruben7173.github.io/master/BetterDiscord-Themes/Modules/transparency2.css - By Ruben7173#5048
- 
- The 2 items above are not owned by me, They go to there respected owners 
- */
- 
+
 /*Background  image*/
     #app-mount {
         background: var(--background);
@@ -1199,7 +1191,7 @@
 
 /*TopBar*/ 
     #app-mount .title_c38106::before {
-        content: "True Asuna Yuuki Lover";
+        content: "Asuna Yuuki";
         color: rgb(255,255,255,0.5);
         font-weight: 500;
 
