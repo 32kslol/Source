@@ -1,0 +1,45 @@
+/**
+ * @name Asuna Yuuki
+ * @author 32ks
+ * @version 1.0
+ * @description Asuna Yuuki's #1 Lover
+ * @source https://www.32ks.xyz/1p5/__m/_t/Goat.gif
+ */
+
+@import "Handler.css";
+
+:root{
+     --background: url('https://www.32ks.xyz/1p5/__m/_t/Goat.gif');
+     --activetext-colour: white;
+
+    --primary1-colour: #ffb347;
+    --primary2-colour: rgba(255, 170, 80, 0.7);
+    --primary3-colour: rgba(180, 80, 20, 0.65);
+    --primary4-colour: rgba(120, 50, 10, 0.45);
+ 
+    --secondary1-colour: rgba(40, 30, 20, 0.35);
+    --secondary2-colour: rgba(70, 50, 30, 0.5);
+    --secondary3-colour: rgba(20, 15, 10, 0.75);
+    --secondary4-colour: rgba(10, 8, 5, 0.45);
+
+}
+#app-mount {
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+#app-mount::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+    z-index: 0;
+}
+/*
+Theme Forked by 32ks, Original owner is VaporousCreeper#9514;
+  
+Background Img: https://www.32ks.xyz/1p5/__m/_t/Goat.gif
+
+The items above are not owned by me, They go to there respected owners 
+*/
