@@ -43,7 +43,7 @@
 }
 
 :is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::after {
-	content: "7.0.1";
+	content: "Lover";
 	position: static;
 	margin-top: -5px;
 	margin-left: 5px;
